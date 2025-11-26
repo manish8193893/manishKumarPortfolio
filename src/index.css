@@ -1,0 +1,255 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+@import "tailwindcss";
+
+:root {
+    /* numeric H S L triplets (kept same structure as original file) */
+    --background: 240 10% 4%;
+    --foreground: 210 40% 98%;
+    --card: 240 10% 6%;
+    --card-foreground: 210 40% 98%;
+    --popover: 240 10% 6%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 263 75% 75%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* derived color variables (actual hsl() colors for easy use) */
+    --background-color: hsl(var(--background));
+    --foreground-color: hsl(var(--foreground));
+    --card-color: hsl(var(--card));
+    --card-foreground-color: hsl(var(--card-foreground));
+    --popover-color: hsl(var(--popover));
+    --popover-foreground-color: hsl(var(--popover-foreground));
+    --primary-color: hsl(var(--primary));
+    --primary-foreground-color: hsl(var(--primary-foreground));
+    --secondary-color: hsl(var(--secondary));
+    --secondary-foreground-color: hsl(var(--secondary-foreground));
+    --muted-color: hsl(var(--muted));
+    --muted-foreground-color: hsl(var(--muted-foreground));
+    --accent-color: hsl(var(--accent));
+    --accent-foreground-color: hsl(var(--accent-foreground));
+    --destructive-color: hsl(var(--destructive));
+    --destructive-foreground-color: hsl(var(--destructive-foreground));
+    --border-color: hsl(var(--border));
+    --input-color: hsl(var(--input));
+    --ring-color: hsl(var(--ring));
+    --sidebar-background-color: hsl(var(--sidebar-background));
+    --sidebar-foreground-color: hsl(var(--sidebar-foreground));
+    --sidebar-primary-color: hsl(var(--sidebar-primary));
+    --sidebar-primary-foreground-color: hsl(var(--sidebar-primary-foreground));
+    --sidebar-accent-color: hsl(var(--sidebar-accent));
+    --sidebar-accent-foreground-color: hsl(var(--sidebar-accent-foreground));
+    --sidebar-border-color: hsl(var(--sidebar-border));
+    --sidebar-ring-color: hsl(var(--sidebar-ring));
+
+    /* fallback/approximate colors used by utilities referenced below */
+    --crypto-blue: #1A1F2C;
+    /* fallback hero blue used in original utilities */
+    --crypto-purple: #9b87f5;
+    /* approximate purple used in text gradient */
+    --crypto-light-purple: #D6BCFA;
+    /* lighter purple for gradient */
+    --crypto-dark-purple: #6E59A5;
+    /* darker purple (not used directly here) */
+    --crypto-accent: #F97316;
+}
+
+/* GLOBAL BASE STYLES */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    /* emulate @apply border-border from Tailwind: set default border color variable */
+    border-color: var(--border-color);
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background: radial-gradient(circle at 25% 25%, rgba(155, 135, 245, 0.1), transparent 60%),
+        linear-gradient(135deg, #1E2233 0%, #252A3C 100%);
+    color: var(--foreground-color);
+    font-family: "Roboto", sans-serif;
+    font-feature-settings: "rlig" 1, "calt" 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.45;
+    min-height: 100vh;
+}
+
+.about-section-gradient {
+    background-image: linear-gradient(#1a1e2b, #13151e);
+}
+
+.text-crypto-purple {
+    color: var(--crypto-purple);
+}
+
+.crypto-purple{
+    background-color: var(--crypto-purple);
+}
+
+.bg-linear-to-b {
+    background: linear-gradient(to bottom, var(--crypto-blue), #12141C);
+}
+
+.navbar-border:hover {
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+/* CARD / POPUP defaults (useful helpers) */
+.card {
+    background: var(--card-color);
+    color: var(--card-foreground-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 1rem;
+}
+
+.popover {
+    background: var(--popover-color);
+    color: var(--popover-foreground-color);
+    border: 1px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: .75rem;
+}
+
+/* UTILITIES converted from Tailwind-utilities layer */
+
+/* Text gradient utility (original used bg-clip + text-transparent) */
+.text-gradient {
+    background-image: linear-gradient(90deg, var(--crypto-purple), var(--crypto-light-purple));
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* Hero gradient background */
+.bg-gradient-hero {
+    background-image: linear-gradient(135deg,
+            var(--crypto-blue) 0%,
+            #252A3C 50%,
+            #1E2233 100%);
+    background-size: cover;
+    background-position: center;
+}
+
+/* hero glow pseudo-element */
+.hero-glow {
+    position: relative;
+    /* ensure pseudo-element is positioned relative to this element */
+}
+
+.hero-glow::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(155, 135, 245, 0.15), transparent 70%);
+    pointer-events: none;
+}
+
+/* Scrollbar hide (cross-browser) */
+.scrollbar-hide::-webkit-scrollbar {
+    display: none;
+}
+
+.scrollbar-hide {
+    -ms-overflow-style: none;
+    /* IE/Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Simple animation helper for "animate on scroll" (js would toggle .show) */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Accessibility / focus ring helper using the --ring color */
+.focus-ring {
+    outline: none;
+    box-shadow: 0 0 0 4px color-mix(in srgb, var(--ring-color) 20%, transparent);
+    border-radius: 0.25rem;
+}
+
+/* Small utility helpers that are commonly used in Tailwind setups */
+.container {
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+/* Buttons (simple primary/secondary examples using defined vars) */
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    border: 1px solid var(--border-color);
+    background: var(--muted-color);
+    color: var(--muted-foreground-color);
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.button-primary {
+    background: var(--primary-color);
+    color: var(--primary-foreground-color);
+    border-color: color-mix(in srgb, var(--primary-color) 90%, black 10%);
+}
+
+/* simple responsive helper (no Tailwind breakpoints available here) */
+@media (max-width: 768px) {
+    .container {
+        padding-left: .75rem;
+        padding-right: .75rem;
+    }
+}
+
+/* small helper to make inputs use input color vars */
+input,
+textarea,
+select {
+    background: hsl(var(--input));
+    color: var(--foreground-color);
+    border: 1px solid var(--border-color);
+    padding: .5rem;
+    border-radius: .375rem;
+    font: inherit;
+}
+
+/* end of style.css */
