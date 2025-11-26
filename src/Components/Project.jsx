@@ -30,9 +30,9 @@ const projectsData = [
     },
     {
         image: "task.png",
-        title: "Task Manager",
+        title: "Task Management System",
         description:
-            "Task Manager is a full-stack web application built with the MERN stack, designed to streamline task assignment, team collaboration, and progress tracking within an organization. It features secure authentication, role-based access, real-time updates, and interactive dashboards that help both admins and team members stay aligned and productive.",
+            "Task Management System is a full-stack web application built with the MERN stack, designed to streamline task assignment, team collaboration, and progress tracking within an organization. It features secure authentication, role-based access, real-time updates, and interactive dashboards that help both admins and team members stay aligned and productive.",
         techStack: ["React", "Tailwind CSS", "Recharts", "React-hot-toast", "react-icons", "Node", "Express", "MongoDB", "JWT Authentication", "multer", "ExcelJS"],
         githubLink: "https://github.com/manish8193893/taskManager",
         liveLink: "https://task-manager-delta-seven-97.vercel.app/",
@@ -45,7 +45,7 @@ const projectsData = [
             "A personal portfolio website to showcase projects, skills, and experience. Built with React and styled with Tailwind CSS.",
         techStack: ["React", "Tailwind CSS", "react-icons", "react-lucide"],
         githubLink: "https://github.com/manish8193893/manishKumarPortfolio",
-        liveLink: "https://manish8193893.netlify.app/",
+        liveLink: "https://manish-kumar-portfolio-two.vercel.app/",
         allActive: true
     },
     {
